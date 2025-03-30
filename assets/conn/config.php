@@ -17,9 +17,9 @@ include 'conn.php';
         rel="stylesheet">
 
     <!--sub folders-->
-    <link href="../assets/style/base.css" type="text/css" rel="stylesheet">
-    <link href="../assets/style/layout.css" type="text/css" rel="stylesheet">
-    <link href="../assets/style/comp.css" type="text/css" rel="stylesheet">
+    <link href="./assets/style/base.css" type="text/css" rel="stylesheet">
+    <link href="./assets/style/layout.css" type="text/css" rel="stylesheet">
+    <link href="./assets/style/comp.css" type="text/css" rel="stylesheet">
 
     <!-- Sub folders to backend -->
 
@@ -30,7 +30,7 @@ include 'conn.php';
     <meta name="author" content="Lasse Lykke @ Lasselykke.com" />
 
     <!-- JS SCRIPT's -->
-    <script src="../assets/style/script.js"></script>
+    <script src="./assets/style/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js inkludering -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.0"></script>

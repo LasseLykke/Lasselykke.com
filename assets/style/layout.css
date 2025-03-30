@@ -1,0 +1,26 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centrerer horisontalt */
+    align-content: center;
+}
+
+.headliner {
+    max-width: 1200px;
+    width: 100%; /* Sørger for, at den ikke overstiger forældreelementet */
+    padding: 200px;
+    margin: 0 auto;
+}
+.headliner h1 {
+    font-size: 7rem;
+    text-transform: uppercase;
+    /* line-height: 0.8em; */
+}
+
+.headliner p {
+    font-size: 2rem;
+}
+
+.headliner span {
+    color: #d9f755;
+}

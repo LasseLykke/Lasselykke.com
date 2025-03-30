@@ -1,6 +1,6 @@
-<?php 
+<?php
 include './assets/conn/config.php';
-include 'assets/include/nav.php';
+include './assets/include/nav.php';
 
 ?>
 
@@ -15,10 +15,17 @@ include 'assets/include/nav.php';
 </head>
 
 <body>
-    
-    </div>
+
+
+<div class="Wrapper">
+    <section class="headliner">
+        <h1>Lasse Lykke</h1>
+        <p># Self'taught <span>webdeveloper</span> with a softspot for data,<br> 
+        php, css and javascript</p>
+    </section>
+</div>
 
 </body>
-<script src="../assets/style/script.js"></script>
+<script src="./assets/style/script.js"></script>
 
 </html>
