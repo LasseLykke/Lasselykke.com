@@ -9,6 +9,7 @@
 ######################
 *.log
 *.sqlite
+*.mysql
 
 # OS generated files #
 ######################
