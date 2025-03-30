@@ -1,26 +1,33 @@
 .wrapper {
     width: 100%;
     display: flex;
-    justify-content: center; /* Centrerer horisontalt */
+    justify-content: center; 
     align-content: center;
+    height: 100dvh;
 }
 
 .headliner {
     max-width: 1200px;
-    width: 100%; /* Sørger for, at den ikke overstiger forældreelementet */
-    padding: 200px;
+    width: 100%;
+    padding: 20px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 100px;
 }
 .headliner h1 {
-    font-size: 7rem;
+    font-size: var(--fs-xl);
     text-transform: uppercase;
-    /* line-height: 0.8em; */
+    line-height: 0.8em;
 }
 
 .headliner p {
-    font-size: 2rem;
+    font-size: var(--fs-500);
+    max-width: 60ch;
 }
 
 .headliner span {
     color: #d9f755;
+    font-weight: 900;
 }

@@ -9,6 +9,19 @@
   --white: #ffffff;
 
   --bs-xs: 0px 4px 12px -8px rgba(0, 0, 0, 0.75);
+
+  --fs-xl: 8rem;
+  --fs-600: 2rem;
+  --fs-500: 1.5rem;
+  --fs-400: 1rem ;
+  --fs-200: 0.8rem;
+}
+
+@media (max-width: 40em) {
+    :root {
+        --fs-xl: 5rem;
+        --fs-600: 1.2rem;
+    }
 }
 
 body {

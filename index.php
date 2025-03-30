@@ -17,11 +17,10 @@ include './assets/include/nav.php';
 <body>
 
 
-<div class="Wrapper">
+<div class="wrapper">
     <section class="headliner">
         <h1>Lasse Lykke</h1>
-        <p># Self'taught <span>webdeveloper</span> with a softspot for data,<br> 
-        php, css and javascript</p>
+        <p>Bringing data to life through visualization // self-taught <span>web developer</span> with a passion for PHP, CSS/SASS, and JavaScript.</p>
     </section>
 </div>
 
