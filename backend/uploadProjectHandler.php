@@ -7,42 +7,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $long_description = $_POST['long_description'];
     $tags = $_POST['tags'];
 
-    $upload_dir = 'uploads/';
-    $image_paths = [];
-
-    if (!is_dir($upload_dir)) {
-        mkdir($upload_dir, 0777, true);
-    }
-
-    // Håndtering af billedupload
-    if (!empty($_FILES['images']['name'][0])) {
-        foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
-            if ($key >= 10) break; // Maks 10 billeder
-
-            $file_name = uniqid() . "_" . $_FILES['images']['name'][$key];
-            $target_file = $upload_dir . $file_name;
-
-            // Komprimer og gem billede
-            if (compressImage($tmp_name, $target_file, 1080)) {
-                $image_paths[] = $target_file;
-            }
-        }
-    }
-
-    // Gem stier i JSON-format
-    $image_paths_json = json_encode($image_paths);
-
-    // Indsæt data i databasen med MySQLi
-    $stmt = $conn->prepare("INSERT INTO projects (title, short_description, long_description, tags, image_paths) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $title, $short_description, $long_description, $tags, $image_paths_json); // Bind parametre
+    // Indsæt projektet i databasen
+    $stmt = $conn->prepare("INSERT INTO projects (title, short_description, long_description, tags) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $title, $short_description, $long_description, $tags);
 
     if ($stmt->execute()) {
-        echo "Projekt tilføjet!";
+        $project_id = $stmt->insert_id; // Hent ID på det indsatte projekt
+        $stmt->close();
+
+        $upload_dir = '../uploads/'; // Sørg for, at denne mappe eksisterer
+        if (!is_dir($upload_dir)) {
+            mkdir($upload_dir, 0777, true);
+        }
+
+        // Håndtering af billedupload
+        foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+            if (!empty($tmp_name)) { // Kun hvis der faktisk er et billede uploadet
+                $file_name = uniqid() . "_" . $_FILES['images']['name'][$key];
+                $target_file = $upload_dir . $file_name;
+
+                // Komprimer og gem billede
+                if (compressImage($tmp_name, $target_file, 1080)) {
+                    // Hent tilsvarende kommentar
+                    $comment = !empty($_POST['image_comments'][$key]) ? $_POST['image_comments'][$key] : NULL;
+
+                    // Indsæt billede i databasen
+                    $stmt_img = $conn->prepare("INSERT INTO project_images (project_id, image_path, comment) VALUES (?, ?, ?)");
+                    $stmt_img->bind_param("iss", $project_id, $target_file, $comment);
+                    $stmt_img->execute();
+                    $stmt_img->close();
+                }
+            }
+        }
+
+        echo "Projekt og billeder tilføjet!";
     } else {
         echo "Fejl ved indsættelse af projekt: " . $stmt->error;
     }
 
-    $stmt->close();
     $conn->close();
 }
 
@@ -68,7 +70,6 @@ function compressImage($source, $destination, $max_width) {
     $new_width = min($max_width, $orig_width);
     $new_height = ($orig_height / $orig_width) * $new_width;
 
-    // Runder værdierne af til heltal for at undgå fejlen
     $new_width = round($new_width);
     $new_height = round($new_height);
 
@@ -81,6 +82,5 @@ function compressImage($source, $destination, $max_width) {
     imagedestroy($resized_image);
 
     return true;
-
 }
 ?>

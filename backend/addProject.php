@@ -3,9 +3,7 @@ session_start();
 
 if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
 include '../assets/conn/config.php';
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="da">
@@ -13,6 +11,19 @@ include '../assets/conn/config.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tilføj Projekt</title>
+    <style>
+        .image-upload-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .image-upload {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+    </style>
 </head>
 <body>
     <h2>Tilføj nyt projekt</h2>
@@ -29,8 +40,16 @@ include '../assets/conn/config.php';
         <label for="tags">Tags (kommasepareret):</label>
         <input type="text" name="tags">
 
-        <label for="images">Upload billeder (max 10):</label>
-        <input type="file" name="images[]" multiple accept="image/*" required>
+        <h3>Upload op til 10 billeder</h3>
+        <div class="image-upload-container">
+            <?php for ($i = 1; $i <= 10; $i++): ?>
+                <div class="image-upload">
+                    <label for="image<?php echo $i; ?>">Billede <?php echo $i; ?>:</label>
+                    <input type="file" name="images[]" accept="image/*">
+                    <input type="text" name="image_comments[]" placeholder="Kommentar til billede <?php echo $i; ?>">
+                </div>
+            <?php endfor; ?>
+        </div>
 
         <button type="submit">Tilføj Projekt</button>
     </form>
@@ -43,5 +62,3 @@ include '../assets/conn/config.php';
     exit();
 }
 ?>
-
-
