@@ -31,3 +31,16 @@
     color: #d9f755;
     font-weight: 900;
 }
+
+
+.allProjectWrapper {
+    max-width: 1200px;
+}
+
+.allProjectWrapper h2 {
+    color: var(--white);
+}
+
+.project-card {
+    padding-bottom: 20px;
+}
