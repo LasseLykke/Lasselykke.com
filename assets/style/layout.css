@@ -28,7 +28,7 @@
 }
 
 .headliner span {
-    color: #d9f755;
+    color: var(--color-feat);
     font-weight: 900;
 }
 
@@ -38,7 +38,15 @@
 }
 
 .allProjectWrapper h2 {
-    color: var(--white);
+    color: var(--color-fg);
+}
+
+.breadcrumbs {
+    text-align: center;
+}
+
+.breadcrumbs span {
+    color: var(--color-feat);
 }
 
 .project-card {

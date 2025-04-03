@@ -6,11 +6,13 @@ include './assets/conn/config.php';
         <div class="bar"></div>
     </button>
 
+
     
 
     <nav class="mobile-nav">
         <a href="./index.php">Home</a>
         <a href="./projects.php">Projects</a>
         <a href="./about.php">About</a>
+        <button id="theme-toggle">🌙</button> <!-- Dark mode toggle -->
     </nav>
 </header>

@@ -7,6 +7,10 @@
 
 :root {
   --white: #ffffff;
+  --color-bg: #ffffff;
+  --color-fg: #000000;
+  --color-feat: #ea0300;
+
 
   --bs-xs: 0px 4px 12px -8px rgba(0, 0, 0, 0.75);
 
@@ -17,6 +21,13 @@
   --fs-200: 0.8rem;
 }
 
+/* Dark mode */
+[data-theme="dark"] {
+  --color-bg: #000000;
+  --color-fg: #ffffff;
+  --color-feat: #d9f755;
+}
+
 @media (max-width: 40em) {
     :root {
         --fs-xl: 5rem;
@@ -25,7 +36,8 @@
 }
 
 body {
-  background-color: #000000;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
 }
 
 
@@ -34,11 +46,13 @@ body {
 h1 {
   font-family: "Lato", sans-serif;
   font-weight: 900;
-  color: white;
+  color: var(--color-fg);
 }
 
 p {
     font-family: "lato", sans-serif;
     font-weight: 400;
-    color: white;
+    color: var(--color-fg);
 }
+
+

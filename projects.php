@@ -19,12 +19,14 @@ $projects = $result->fetch_all(MYSQLI_ASSOC);
 <body>
     <div class="wrapper">
     <div class="allProjectWrapper">
-        <h1>Projects</h1>
+        <section class="breadcrumbs">
+            <p>projects / <span>all</span></p>
+        </section>
         
         <?php foreach ($projects as $project): ?>
             <div class="project-card">
                 <h2><?php echo htmlspecialchars($project['title']); ?></h2>
-                <p><strong>Tags:</strong> <?php echo htmlspecialchars($project['tags']); ?></p>
+                <p><strong>Tech:</strong> <?php echo htmlspecialchars($project['tags']); ?></p>
                 <p><?php echo nl2br(htmlspecialchars($project['short_description'])); ?></p>
                 <a href="singleProject.php?id=<?php echo $project['id']; ?>" class="read-more">Read More</a>
                 

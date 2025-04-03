@@ -1,30 +1,25 @@
 <?php
 include './assets/conn/config.php';
 include './assets/include/nav.php';
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light"> <!-- Default theme -->
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Lasse Lykke </title>
+    <title>Lasse Lykke</title>
 </head>
 
 <body>
+    <div class="wrapper">
+        <section class="headliner">
+            <h1>Lasse Lykke</h1>
+            <p>Bringing data to life through visualization // self-taught <span>web developer</span> with a passion for PHP, CSS/SASS, and JavaScript.</p>
+        </section>
+    </div>
 
-
-<div class="wrapper">
-    <section class="headliner">
-        <h1>Lasse Lykke</h1>
-        <p>Bringing data to life through visualization // self-taught <span>web developer</span> with a passion for PHP, CSS/SASS, and JavaScript.</p>
-    </section>
-</div>
-
+    <script src="./assets/style/script.js"></script>
 </body>
-<script src="./assets/style/script.js"></script>
-
 </html>

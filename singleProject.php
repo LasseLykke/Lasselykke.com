@@ -34,7 +34,7 @@ $first_image = array_shift($images);
 ?>
 
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
