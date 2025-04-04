@@ -73,7 +73,7 @@ header {
     min-height: 100dvh;
     display: block;
     z-index: 99;
-    background-color: var(--color-feat);
+    background-color: var(--color-feat-nav);
     padding-top: 120px;
     transition: 0.4s;
   

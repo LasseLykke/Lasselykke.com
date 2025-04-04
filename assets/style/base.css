@@ -10,6 +10,7 @@
   --color-bg: #ffffff;
   --color-fg: #000000;
   --color-feat: #ea0300;
+  --color-feat-nav: #edecec;
 
 
   --bs-xs: 0px 4px 12px -8px rgba(0, 0, 0, 0.75);
@@ -26,6 +27,7 @@
   --color-bg: #000000;
   --color-fg: #ffffff;
   --color-feat: #d9f755;
+  --color-feat-nav: #d9f755;
 }
 
 @media (max-width: 40em) {

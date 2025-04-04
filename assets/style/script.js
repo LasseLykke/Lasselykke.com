@@ -13,16 +13,39 @@ window.onload = function () {
     // Dark mode toggle
     const toggleButton = document.getElementById("theme-toggle");
 
-    if (toggleButton) {  // Undgå fejl hvis knappen mangler
-        const currentTheme = localStorage.getItem("theme") || "light";
-        document.documentElement.setAttribute("data-theme", currentTheme);
-        toggleButton.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+    if (toggleButton) {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
+        // Funktion til at sætte tema og opdatere knap
+        function setTheme(theme, save = false) {
+            document.documentElement.setAttribute("data-theme", theme);
+            toggleButton.textContent = theme === "dark" ? "☀️" : "🌙";
+            if (save) localStorage.setItem("theme", theme);
+        }
+
+        // Vælg tema ud fra localStorage eller system præference
+        let storedTheme = localStorage.getItem("theme");
+        if (storedTheme) {
+            setTheme(storedTheme);
+        } else {
+            setTheme(prefersDark.matches ? "dark" : "light");
+        }
+
+        // Lyt efter ændringer i systemindstillinger
+        prefersDark.addEventListener("change", (e) => {
+            const newTheme = e.matches ? "dark" : "light";
+
+            // Kun ændr tema hvis brugeren ikke selv har valgt noget
+            if (!localStorage.getItem("theme")) {
+                setTheme(newTheme);
+            }
+        });
+
+        // Håndter klik på knappen
         toggleButton.addEventListener("click", () => {
-            const newTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-            document.documentElement.setAttribute("data-theme", newTheme);
-            localStorage.setItem("theme", newTheme);
-            toggleButton.textContent = newTheme === "dark" ? "☀️" : "🌙";
+            const current = document.documentElement.getAttribute("data-theme");
+            const newTheme = current === "dark" ? "light" : "dark";
+            setTheme(newTheme, true); // gem brugerens valg
         });
     }
 };
