@@ -4,7 +4,6 @@ CREATE TABLE projects (
     shortDescription TEXT NOT NULL,
     longDescription TEXT NOT NULL,
     tags VARCHAR(255), -- Kommasepareret liste af tags
-    imagePaths JSON NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
