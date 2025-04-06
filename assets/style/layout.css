@@ -34,6 +34,7 @@
 
 
 .allProjectWrapper {
+    min-width: 350px;
     max-width: 1200px;
 }
 
@@ -53,4 +54,24 @@
     padding-bottom: 20px;
     max-width: 1200px;
     background-color: pink;
+}
+
+.projectWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projectWrapper img {
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.image-comment {
+    font-style: italic;
+    color: #555;
+    margin-top: 5px;
+    text-align: center;
 }

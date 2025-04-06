@@ -38,6 +38,8 @@ $skillLevels = [
     1 => ['PHP' => 70, 'JavaScript' => 50, 'HTML/CSS' => 90],
     2 => ['PHP' => 30, 'JavaScript' => 80],
     3 => ['HTML/CSS' => 100],
+    7 => ['PHP' => 70, 'JavaScript' => 30, 'HTML/CSS' => 90],
+
 ];
 
 
@@ -68,17 +70,22 @@ $projectSkills = $skillLevels[$project_id] ?? [];
 
         <p><?php echo nl2br(htmlspecialchars($project['long_description'])); ?></p>
 
-        <?php foreach ($projectSkills as $skill => $percent): ?>
-            <div class="label"><?php echo htmlspecialchars($skill); ?></div>
-            <div class="progress-container">
-                <div class="progress-bar" data-percent="<?php echo $percent; ?>"><?php echo $percent; ?>%</div>
-            </div>
-        <?php endforeach; ?>
+        <div class="progress-wrapper">
+            <?php foreach ($projectSkills as $skill => $percent): ?>
+                <div class="skill-block">
+                    <div class="label"><?php echo htmlspecialchars($skill); ?></div>
+                    <div class="progress-container">
+                        <div class="progress-bar" data-percent="<?php echo $percent; ?>"><?php echo $percent; ?>%</div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
 
         <?php foreach ($images as $image): ?>
             <img src="<?php echo htmlspecialchars($image['image_path']); ?>" alt="Projektbillede">
             <?php if (!empty($image['comment'])): ?>
-                <p><?php echo htmlspecialchars($image['comment']); ?></p>
+                <p class="image-comment"><?php echo htmlspecialchars($image['comment']); ?></p>
             <?php endif; ?>
         <?php endforeach; ?>
     </div>
