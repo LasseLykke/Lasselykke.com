@@ -29,6 +29,7 @@ $projects = $result->fetch_all(MYSQLI_ASSOC);
                 <p><strong>Tech:</strong> <?php echo htmlspecialchars($project['tags']); ?></p>
                 <p><?php echo nl2br(htmlspecialchars($project['short_description'])); ?></p>
                 <a href="singleProject.php?id=<?php echo $project['id']; ?>" class="read-more">Read More</a>
+                <hr>
                 
             </div>
         <?php endforeach; ?>
