@@ -35,7 +35,7 @@ $first_image = array_shift($images);
 // Hardcoded færdighedsprocenter pr. projekt
 // 1,2,3 => er project id, dette skal altså rettes for hver nyt projekt. Men er bedre med et loop end kode det ind i db.
 $skillLevels = [
-    1 => ['PHP' => 70, 'JavaScript' => 50, 'HTML/CSS' => 90],
+    4 => ['PHP' => 70, 'JavaScript' => 50, 'HTML/CSS' => 90],
     2 => ['PHP' => 30, 'JavaScript' => 80],
     3 => ['HTML/CSS' => 100],
     7 => ['PHP' => 70, 'JavaScript' => 30, 'HTML/CSS' => 90],
@@ -62,7 +62,7 @@ $projectSkills = $skillLevels[$project_id] ?? [];
     <div class="projectWrapper">
         <h1><?php echo htmlspecialchars($project['title']); ?></h1>
 
-        <p><strong>Tags:</strong> <?php echo htmlspecialchars($project['tags']); ?></p>
+        <!-- <p><strong>Tags:</strong> <?php echo htmlspecialchars($project['tags']); ?></p> -->
 
         <?php if ($first_image): ?>
             <img src="<?php echo htmlspecialchars($first_image['image_path']); ?>" alt="Projektbillede">
@@ -70,16 +70,22 @@ $projectSkills = $skillLevels[$project_id] ?? [];
 
         <p><?php echo nl2br(htmlspecialchars($project['long_description'])); ?></p>
 
-        <div class="progress-wrapper">
+        <h2>Tech stack</h2>
+        <div class="progress-wrapper lazy-progress">
             <?php foreach ($projectSkills as $skill => $percent): ?>
                 <div class="skill-block">
-                    <div class="label"><?php echo htmlspecialchars($skill); ?></div>
+                    <div class="label-row">
+                        <span class="label"><?php echo htmlspecialchars($skill); ?></span>
+                        <span class="percent" data-target="<?php echo $percent; ?>">0%</span>
+                    </div>
                     <div class="progress-container">
-                        <div class="progress-bar" data-percent="<?php echo $percent; ?>"><?php echo $percent; ?>%</div>
+                        <div class="progress-bar" data-percent="<?php echo $percent; ?>"></div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
+
+
 
 
         <?php foreach ($images as $image): ?>

@@ -51,13 +51,48 @@ window.onload = function () {
 };
 
 // Lytter til procent i progress-bar
-window.addEventListener('load', () => {
-    setTimeout(() => {
-      const bars = document.querySelectorAll('.progress-bar');
-      bars.forEach(bar => {
-        const percent = bar.getAttribute('data-percent');
-        bar.style.width = percent + '%';
-        bar.textContent = percent + '%';
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bars = entry.target.querySelectorAll('.progress-bar');
+          const percents = entry.target.querySelectorAll('.percent');
+  
+          bars.forEach(bar => {
+            const percent = bar.getAttribute('data-percent');
+            bar.style.width = percent + '%';
+          });
+  
+          percents.forEach(percentEl => {
+            const target = +percentEl.getAttribute('data-target');
+            let count = 0;
+            const speed = 500; // lavere = hurtigere
+  
+            const updateCount = () => {
+              const increment = Math.ceil(target / 100); // juster for smoothness
+              count += increment;
+  
+              if (count >= target) {
+                percentEl.textContent = target + '%';
+              } else {
+                percentEl.textContent = count + '%';
+                requestAnimationFrame(updateCount);
+              }
+            };
+  
+            updateCount();
+          });
+  
+          obs.unobserve(entry.target);
+        }
       });
-    }, 2000); // 2 sekunders delay
+    }, {
+      threshold: 0.4
+    });
+  
+    const wrapper = document.querySelector('.lazy-progress');
+    if (wrapper) {
+      observer.observe(wrapper);
+    }
   });
+  
