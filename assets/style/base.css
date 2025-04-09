@@ -12,13 +12,12 @@
   --color-feat: #ea0300;
   --color-feat-nav: #edecec;
 
-
   --bs-xs: 0px 4px 12px -8px rgba(0, 0, 0, 0.75);
 
   --fs-xl: 8rem;
   --fs-600: 2rem;
   --fs-500: 1.5rem;
-  --fs-400: 1rem ;
+  --fs-400: 1rem;
   --fs-200: 0.8rem;
 }
 
@@ -31,17 +30,16 @@
 }
 
 @media (max-width: 40em) {
-    :root {
-        --fs-xl: 5rem;
-        --fs-600: 1.2rem;
-    }
+  :root {
+    --fs-xl: 5rem;
+    --fs-600: 1.2rem;
+  }
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
 }
-
 
 /*FONTS AND CLASSES*/
 
@@ -51,10 +49,19 @@ h1 {
   color: var(--color-fg);
 }
 
-p {
-    font-family: "lato", sans-serif;
-    font-weight: 400;
-    color: var(--color-fg);
+.title {
+  text-transform: uppercase;
 }
 
+p {
+  font-family: "lato", sans-serif;
+  font-weight: 400;
+  color: var(--color-fg);
+}
 
+.longDescription {
+  font-family: "lato", sans-serif;
+  font-weight: 400;
+  color: var(--color-fg);
+  padding-top: 20px;
+}

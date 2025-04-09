@@ -39,6 +39,7 @@ $skillLevels = [
     2 => ['PHP' => 30, 'JavaScript' => 80],
     3 => ['HTML/CSS' => 100],
     7 => ['PHP' => 70, 'JavaScript' => 30, 'HTML/CSS' => 90],
+    5 => ['PHP' => 93.9, 'JS' => 1.1, 'CSS' => 4.9],
 
 ];
 
@@ -60,17 +61,18 @@ $projectSkills = $skillLevels[$project_id] ?? [];
 
 <body>
     <div class="projectWrapper">
-        <h1><?php echo htmlspecialchars($project['title']); ?></h1>
+        <h1 class="title"><?php echo htmlspecialchars($project['title']); ?></h1>
 
         <!-- <p><strong>Tags:</strong> <?php echo htmlspecialchars($project['tags']); ?></p> -->
 
         <?php if ($first_image): ?>
-            <img src="<?php echo htmlspecialchars($first_image['image_path']); ?>" alt="Projektbillede">
+            <img src="<?php echo htmlspecialchars($first_image['image_path']); ?>" alt="Projektbillede"
+                class="full-width-image">
         <?php endif; ?>
 
-        <p><?php echo nl2br(htmlspecialchars($project['long_description'])); ?></p>
+        <p class="longDescription"><?php echo nl2br(htmlspecialchars($project['long_description'])); ?></p>
 
-        <h2>Tech stack</h2>
+
         <div class="progress-wrapper lazy-progress">
             <?php foreach ($projectSkills as $skill => $percent): ?>
                 <div class="skill-block">
@@ -89,7 +91,10 @@ $projectSkills = $skillLevels[$project_id] ?? [];
 
 
         <?php foreach ($images as $image): ?>
-            <img src="<?php echo htmlspecialchars($image['image_path']); ?>" alt="Projektbillede">
+            <div class="secondaryImageWrapper">
+                <img src="<?php echo htmlspecialchars($image['image_path']); ?>" alt="Projektbillede"
+                    class="secondaryImage">
+            </div>
             <?php if (!empty($image['comment'])): ?>
                 <p class="image-comment"><?php echo htmlspecialchars($image['comment']); ?></p>
             <?php endif; ?>
