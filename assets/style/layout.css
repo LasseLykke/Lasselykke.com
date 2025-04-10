@@ -90,7 +90,7 @@
     left: 5px; /* offset */
     width: 100%;
     height: 100%;
-    background-color: var(--color-feat); /* eller fx #333 */
+    background-color: var(--color-feat-bs); /* eller fx #333 */
     z-index: 1;
     transition: all 0.3s ease;
     opacity: 1;
