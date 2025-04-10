@@ -129,6 +129,7 @@ header {
 .label-row {
   display: flex;
   justify-content: space-between;
+  font-family: 'lato', sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: var(--color-fg);

@@ -86,22 +86,20 @@
   .secondaryImageWrapper::after {
     content: "";
     position: absolute;
-    top: 10px;  /* offset */
-    left: 10px; /* offset */
+    top: 5px;  /* offset */
+    left: 5px; /* offset */
     width: 100%;
     height: 100%;
     background-color: var(--color-feat); /* eller fx #333 */
     z-index: 1;
     transition: all 0.3s ease;
-    border-radius: 4px; /* valgfrit for lidt rundere look */
     opacity: 1;
   }
   
   /* Lidt animation, hvis du vil */
   .secondaryImageWrapper:hover::after {
-    top: 15px;
-    left: 15px;
-    opacity: 0.9;
+    top: 6px;
+    left: 6px;
   }
   
 

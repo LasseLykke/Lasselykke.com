@@ -40,6 +40,7 @@ $skillLevels = [
     3 => ['HTML/CSS' => 100],
     7 => ['PHP' => 70, 'JavaScript' => 30, 'HTML/CSS' => 90],
     5 => ['PHP' => 93.9, 'JS' => 1.1, 'CSS' => 4.9],
+    6 => ['PHP' => 93.9, 'JS' => 1.1, 'CSS' => 4.9],
 
 ];
 
