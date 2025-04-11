@@ -64,14 +64,14 @@
   display: block;
 }
 
-
 .secondaryImageWrapper {
     position: relative;
-    display: flex; /* ændret fra inline-block for nem centreret placering */
+    display: flex;
     justify-content: center;
     margin: 2rem auto;
-    width: 100%; /* gør at den ikke bliver mindre end billedet */
+    width: 100%;
     max-width: 1000px;
+    box-sizing: border-box;
   }
   
   .secondaryImage {
@@ -80,32 +80,46 @@
     display: block;
     position: relative;
     z-index: 2;
+    padding: 5px;
+    box-sizing: content-box;
+    background-color: white;
   }
   
   /* Skygge-effekten bag billedet */
   .secondaryImageWrapper::after {
     content: "";
     position: absolute;
-    top: 5px;  /* offset */
-    left: 5px; /* offset */
+    top: 4px;
+    left: 8px;
     width: 100%;
     height: 100%;
-    background-color: var(--color-feat-bs); /* eller fx #333 */
+    background-color: var(--color-feat-bs);
     z-index: 1;
     transition: all 0.3s ease;
     opacity: 1;
   }
   
-  /* Lidt animation, hvis du vil */
+  /* Hover-effekt på større skærme */
   .secondaryImageWrapper:hover::after {
-    top: 6px;
-    left: 6px;
+    top: 5px;
+    left: 9px;
+  }
+  
+  /* MOBIL: Fjern skygge og padding på mindre skærme */
+  @media (max-width: 600px) {
+    .secondaryImageWrapper::after {
+      display: none;
+    }
+  
+    .secondaryImage {
+      padding: 0;
+    }
   }
   
 
 .image-comment {
   font-style: italic;
-  color: #555;
+  color: var(--color-fg);
   margin-top: 5px;
   text-align: center;
 }
