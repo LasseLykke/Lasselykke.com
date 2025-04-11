@@ -28,7 +28,7 @@
   --color-fg: #ffffff;
   --color-feat: #d9f755;
   --color-feat-nav: #d9f755;
-  --color-feat-bs: #ffffff; 
+  --color-feat-bs: transparrent; 
 }
 
 @media (max-width: 40em) {

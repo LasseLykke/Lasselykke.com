@@ -67,7 +67,8 @@
 .secondaryImageWrapper {
     position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* så billede og tekst er lodret */
+    align-items: center;     /* centrer indholdet horisontalt */
     margin: 2rem auto;
     width: 100%;
     max-width: 1000px;
@@ -84,13 +85,18 @@
     box-sizing: content-box;
     background-color: white;
   }
+
+.secondaryImageInner {
+    position: relative;
+    width: 100%;
+  }
   
-  /* Skygge-effekten bag billedet */
-  .secondaryImageWrapper::after {
+  /* Flyt skyggen herind */
+  .secondaryImageInner::after {
     content: "";
     position: absolute;
-    top: 4px;
-    left: 8px;
+    top: 3px;
+    left: 12px;
     width: 100%;
     height: 100%;
     background-color: var(--color-feat-bs);
@@ -99,27 +105,36 @@
     opacity: 1;
   }
   
-  /* Hover-effekt på større skærme */
-  .secondaryImageWrapper:hover::after {
-    top: 5px;
-    left: 9px;
+  
+  .secondaryImageInner:hover::after {
+    top: 4px;
+    left: 13px;
   }
   
-  /* MOBIL: Fjern skygge og padding på mindre skærme */
+  /* Kommentar under billedet – følger billedets bredde */
+  .image-comment {
+    color: var(--color-fg);
+    text-align: left;
+    margin-top: 0.5rem;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  /* Mobiloptimering */
   @media (max-width: 600px) {
-    .secondaryImageWrapper::after {
+    .secondaryImageInner::after {
       display: none;
     }
   
     .secondaryImage {
       padding: 0;
     }
+  
+    .image-comment {
+      padding: 0;
+    }
   }
   
-
-.image-comment {
-  font-style: italic;
-  color: var(--color-fg);
-  margin-top: 5px;
-  text-align: center;
-}
