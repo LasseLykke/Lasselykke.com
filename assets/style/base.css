@@ -16,6 +16,8 @@
   --bs-xs: 0px 4px 12px -8px rgba(0, 0, 0, 0.75);
 
   --fs-xl: 8rem;
+  --fs-800: 5rem;
+  --fs-700: 4rem;
   --fs-600: 2rem;
   --fs-500: 1.5rem;
   --fs-400: 1rem;
@@ -53,7 +55,15 @@ h1 {
 
 .title {
   text-transform: uppercase;
+  font-size: var(--fs-xl);
+  line-height: 0.9;
 }
+
+@media (max-width: 600px) {
+  .title {
+      font-size: var(--fs-700);
+  }
+  }
 
 p {
   font-family: "lato", sans-serif;
@@ -61,7 +71,7 @@ p {
   color: var(--color-fg);
 }
 
-.longDescription {
+.longDescription, .comment {
   font-family: "lato", sans-serif;
   font-weight: 400;
   color: var(--color-fg);
