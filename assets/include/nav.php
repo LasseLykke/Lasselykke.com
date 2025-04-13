@@ -10,9 +10,10 @@ include './assets/conn/config.php';
     
 
     <nav class="mobile-nav">
-        <a href="./index.php">Home</a>
-        <a href="./projects.php">Projects</a>
-        <a href="./about.php">About</a>
+        <a href="./index.php"><span>Home</span></a>
+        <a href="./about.php"><span>About</span></a>
+        <a href="./projects.php"><span>Projects</span></a>
+        <a href="./contact.php"><span>Contact</span></a>
         <button id="theme-toggle">🌙</button> <!-- Dark mode toggle -->
     </nav>
 </header>

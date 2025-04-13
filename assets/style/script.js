@@ -8,6 +8,42 @@ window.onload = function () {
       menu_btn.classList.toggle("is-active");
       mobile_menu.classList.toggle("is-active");
     });
+
+    // Lytter til navbar scroll
+    const header = document.querySelector("header");
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    let scrollTimeout;
+    const threshold = 10; // px man scroller.
+    const delay = 80; // Millisekunder før den må komme tilbage
+  
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+  
+          if (Math.abs(currentScrollY - lastScrollY) > threshold) {
+            if (currentScrollY > lastScrollY) {
+              // Scroller ned
+              header.classList.add("hide-on-scroll");
+              clearTimeout(scrollTimeout);
+            } else {
+              // Scroller op
+              clearTimeout(scrollTimeout);
+              scrollTimeout = setTimeout(() => {
+                header.classList.remove("hide-on-scroll");
+              }, delay);
+            }
+  
+            lastScrollY = currentScrollY;
+          }
+  
+          ticking = false;
+        });
+  
+        ticking = true;
+      }
+    });
   }
 
   // Dark mode toggle
@@ -95,4 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
       observer.observe(wrapper);
     }
   });
+
+
   
