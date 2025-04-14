@@ -16,6 +16,9 @@ include 'conn.php';
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins&display=swap"
         rel="stylesheet">
 
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=light_mode" />
     <!--sub folders-->
     <link href="./assets/style/base.css" type="text/css" rel="stylesheet">
     <link href="./assets/style/layout.css" type="text/css" rel="stylesheet">

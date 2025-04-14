@@ -17,3 +17,19 @@ include './assets/conn/config.php';
         <button id="theme-toggle">🌙</button> <!-- Dark mode toggle -->
     </nav>
 </header>
+
+
+
+<!-- icons need to  be inserted 
+
+<span class="material-symbols-outlined">
+dark_mode
+</span>
+
+<span class="material-symbols-outlined">
+light_mode
+</span>
+
+
+
+--> 
