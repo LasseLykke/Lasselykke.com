@@ -17,9 +17,8 @@ include 'conn.php';
         rel="stylesheet">
 
         <!-- Icons -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=light_mode" />
-    <!--sub folders-->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <!--sub folders-->
     <link href="./assets/style/base.css" type="text/css" rel="stylesheet">
     <link href="./assets/style/layout.css" type="text/css" rel="stylesheet">
     <link href="./assets/style/comp.css" type="text/css" rel="stylesheet">

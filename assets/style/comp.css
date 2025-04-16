@@ -141,9 +141,34 @@ header.hide-on-scroll {
   cursor: pointer;
   background: none;
   border: none;
-  color: var(--color-fg);
+  color: black;
   transition: color 0.3s;
 }
+
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#theme-toggle .material-symbols-outlined {
+  font-size: 1.6rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.8;
+}
+
+#theme-toggle:hover .material-symbols-outlined,
+#theme-toggle:focus .material-symbols-outlined {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+
+
 
 .progress-wrapper {
   display: flex;

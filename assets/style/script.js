@@ -48,40 +48,34 @@ window.onload = function () {
 
   // Dark mode toggle
   const toggleButton = document.getElementById("theme-toggle");
-
-  if (toggleButton) {
+  const themeIcon = document.getElementById("theme-icon");
+  
+  if (toggleButton && themeIcon) {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-    // Funktion til at sætte tema og opdatere knap
+  
     function setTheme(theme, save = false) {
       document.documentElement.setAttribute("data-theme", theme);
-      toggleButton.textContent = theme === "dark" ? "☀️" : "🌙";
+      themeIcon.innerText = theme === "dark" ? "light_mode" : "dark_mode";
       if (save) localStorage.setItem("theme", theme);
     }
-
-    // Vælg tema ud fra localStorage eller system præference
+  
     let storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
       setTheme(storedTheme);
     } else {
       setTheme(prefersDark.matches ? "dark" : "light");
     }
-
-    // Lyt efter ændringer i systemindstillinger
+  
     prefersDark.addEventListener("change", (e) => {
-      const newTheme = e.matches ? "dark" : "light";
-
-      // Kun ændr tema hvis brugeren ikke selv har valgt noget
       if (!localStorage.getItem("theme")) {
-        setTheme(newTheme);
+        setTheme(e.matches ? "dark" : "light");
       }
     });
-
-    // Håndter klik på knappen
+  
     toggleButton.addEventListener("click", () => {
       const current = document.documentElement.getAttribute("data-theme");
       const newTheme = current === "dark" ? "light" : "dark";
-      setTheme(newTheme, true); // gem brugerens valg
+      setTheme(newTheme, true);
     });
   }
 };
