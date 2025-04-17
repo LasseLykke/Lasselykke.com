@@ -15,7 +15,7 @@ window.onload = function () {
 
     const isMobile = window.innerWidth <= 768;
     const threshold = isMobile ? 2 : 5;
-    const delay = 20;
+    const delay = 80;
 
     window.addEventListener("scroll", () => {
       if (!ticking) {
@@ -41,8 +41,8 @@ window.onload = function () {
         ticking = true;
       }
     });
-  }
   
+  }
 
   // Dark mode toggle
   const toggleButton = document.getElementById("theme-toggle");

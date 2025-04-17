@@ -63,76 +63,98 @@
   height: auto;
   display: block;
 }
+.secondaryImageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  align-items: stretch; /* ← vigtig del! */
+}
+
+@media (max-width: 600px) {
+  .secondaryImageGrid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .secondaryImageWrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column; /* så billede og tekst er lodret */
-    align-items: center;     /* centrer indholdet horisontalt */
-    margin: 2rem auto;
-    width: 100%;
-    max-width: 1000px;
-    box-sizing: border-box;
-  }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  height: 100%; /* ← vigtig for at få lige højde i grid */
+  align-items: stretch; /* ← i stedet for center */
+}
+
+.secondaryImage {
+  display: block;
+  position: relative;
+  z-index: 2;
+  padding: 5px;
+  box-sizing: content-box;
+  background-color: white;
   
-  .secondaryImage {
-    width: 100%;
-    height: auto;
-    display: block;
-    position: relative;
-    z-index: 2;
-    padding: 5px;
-    box-sizing: content-box;
-    background-color: white;
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .secondaryImageInner {
-    position: relative;
-    width: 100%;
-  }
-  
+  position: relative;
+  width: 100%;
+  flex: 1; /* ← vigtigt */
+  height: 100%; /* ← vigtigt */
+  display: flex; /* ← for at styre billedet */
+}
+
+.secondaryImageInner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-feat-bs);
+  z-index: 1;
+  transition: transform 0.3s ease-in-out;
+  transform: translate(12px, 3px);
+  opacity: 1;
+}
+
+.secondaryImageInner:hover::after {
+  transform: translate(13px, 4px);
+}
+
+/* Kommentar under billedet – følger billedets bredde */
+.image-comment {
+  color: var(--color-fg);
+  text-align: left;
+  margin-top: 0.5rem;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding: 0.5rem 5px 0;
+}
+
+/* Mobiloptimering */
+@media (max-width: 600px) {
   .secondaryImageInner::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-feat-bs);
-    z-index: 1;
-    transition: transform 0.3s ease-in-out;
-    transform: translate(12px, 3px);
-    opacity: 1;
+    display: none;
   }
-  
-  .secondaryImageInner:hover::after {
-    transform: translate(13px, 4px);
+
+  .secondaryImage {
+    padding: 0;
   }
-  
-  /* Kommentar under billedet – følger billedets bredde */
+
   .image-comment {
-    color: var(--color-fg);
-    text-align: left;
-    margin-top: 0.5rem;
-    max-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 0;
   }
-  
-  /* Mobiloptimering */
-  @media (max-width: 600px) {
-    .secondaryImageInner::after {
-      display: none;
-    }
-  
-    .secondaryImage {
-      padding: 0;
-    }
-  
-    .image-comment {
-      padding: 0;
-    }
-  }
-  
+}

@@ -92,19 +92,20 @@ $projectSkills = $skillLevels[$project_id] ?? [];
 
 
 
-        <?php foreach ($images as $image): ?>
-            <div class="secondaryImageWrapper">
-                <div class="secondaryImageInner">
-                    <img src="<?php echo htmlspecialchars($image['image_path']); ?>" alt="Projektbillede"
-                        class="secondaryImage">
-                </div>
+        <div class="secondaryImageGrid">
+            <?php foreach ($images as $image): ?>
+                <div class="secondaryImageWrapper">
+                    <div class="secondaryImageInner">
+                        <img src="<?php echo htmlspecialchars($image['image_path']); ?>" alt="Projektbillede"
+                            class="secondaryImage">
+                    </div>
 
-                <?php if (!empty($image['comment'])): ?>
-                    <p class="image-comment"><?php echo htmlspecialchars($image['comment']); ?></p>
-                <?php endif; ?>
-            </div>
-        <?php endforeach; ?>
-        <br><br>
+                    <?php if (!empty($image['comment'])): ?>
+                        <p class="image-comment"><?php echo htmlspecialchars($image['comment']); ?></p>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
     </div>
 </body>
