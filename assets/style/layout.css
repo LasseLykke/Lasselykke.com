@@ -91,24 +91,22 @@
     width: 100%;
   }
   
-  /* Flyt skyggen herind */
   .secondaryImageInner::after {
     content: "";
     position: absolute;
-    top: 3px;
-    left: 12px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: var(--color-feat-bs);
     z-index: 1;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease-in-out;
+    transform: translate(12px, 3px);
     opacity: 1;
   }
   
-  
   .secondaryImageInner:hover::after {
-    top: 4px;
-    left: 13px;
+    transform: translate(13px, 4px);
   }
   
   /* Kommentar under billedet – følger billedets bredde */
