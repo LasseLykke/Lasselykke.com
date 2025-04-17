@@ -123,12 +123,12 @@
   background-color: var(--color-feat-bs);
   z-index: 1;
   transition: transform 0.3s ease-in-out;
-  transform: translate(12px, 3px);
+  transform: translate(12px, 13px);
   opacity: 1;
 }
 
 .secondaryImageInner:hover::after {
-  transform: translate(13px, 4px);
+  transform: translate(13px, 14px);
 }
 
 /* Kommentar under billedet – følger billedets bredde */

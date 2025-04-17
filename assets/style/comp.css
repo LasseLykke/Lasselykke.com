@@ -100,7 +100,7 @@ header.hide-on-scroll {
   text-align: center;
   margin-bottom: 16px;
   padding: 12px 16px;
-  text-decoration: none; /* <-- Her fjerner du den default underline */
+  text-decoration: none;
   color: black;
   font-family: 'lato', sans-serif;
   font-size: var(--fs-800);
@@ -166,8 +166,6 @@ header.hide-on-scroll {
   transform: scale(1.15);
   opacity: 1;
 }
-
-
 
 
 .progress-wrapper {
