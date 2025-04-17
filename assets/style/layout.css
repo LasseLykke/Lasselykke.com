@@ -32,6 +32,8 @@
   font-weight: 900;
 }
 
+/* PROJECT OVERVIEW */
+
 .allProjectWrapper {
   min-width: 350px;
   max-width: 1200px;
@@ -53,6 +55,9 @@
   padding-bottom: 20px;
   max-width: 1200px;
 }
+
+
+/* SINGLE PROJECT */
 
 .projectWrapper {
   max-width: 1200px;
