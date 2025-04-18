@@ -34,26 +34,70 @@
 
 /* PROJECT OVERVIEW */
 
-.allProjectWrapper {
-  min-width: 350px;
-  max-width: 1200px;
-}
-
-.allProjectWrapper h2 {
-  color: var(--color-fg);
-}
-
 .breadcrumbs {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .breadcrumbs span {
   color: var(--color-feat);
 }
 
-.project-card {
-  padding-bottom: 20px;
+.allProjectWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolonner á 1fr */
+  gap: 20px; /* afstand mellem kortene */
+  min-width: 350px;
   max-width: 1200px;
+  padding: 20px 0; /* lidt luft omkring */
+}
+
+/* Mobil: 1 kolonne */
+@media (max-width: 600px) {
+  .allProjectWrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 0;
+  }
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-alt);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  /* hvis du vil have alle kort lige høje, kan du give dem en min-height: */
+  /* min-height: 300px; */
+}
+
+.project-card h2 {
+  margin-top: 0;
+  font-family: 'lato', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.project-card p {
+  margin: 8px 0;
+  font-family: 'lato', sans-serif;
+}
+
+.project-card .read-more {
+  margin-top: auto;           /* skubber linket ned i bunden */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border: 1px solid var(--color-feat);
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  align-self: flex-start;     /* “Read More” ligger til venstre; brug center eller stretch hvis du foretrækker */
+}
+
+.project-card .read-more:hover {
+  background: var(--color-feat);
+  color: #fff;
 }
 
 
