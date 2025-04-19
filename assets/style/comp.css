@@ -1,38 +1,30 @@
 /* NAVBAR */
 
-/*Main nav wrapper*/
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
-  /* position: sticky; */
-  border-bottom: 1px solid var(--bgGrey);
+/* Header styling */
+#main-header {
+  /* position: fixed; */
   top: 0;
-  z-index: 1000;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  background-color: var(--color-bg);
-  will-change: transform;
+  left: 0;
+  width: 100%;
+  background: var(--color-bg);
+  /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+  transition: transform 0.3s ease;
+  z-index: 999;
 }
 
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
 
-header.hide-on-scroll {
+/* Hide on scroll */
+.header-hidden {
   transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-  overflow: hidden;
 }
 
-/* Logo (centreret) */
-.logo {
-  margin: 0 auto;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-}
-
+/* Hamburger styling */
 .hamburger {
   position: relative;
   display: block;
@@ -77,39 +69,50 @@ header.hide-on-scroll {
   opacity: 0;
 }
 
+/* Mobile nav */
 .mobile-nav {
   position: fixed;
   top: 0;
-  left: 100%;
+  left: 0;
   width: 100%;
-  min-height: 100dvh;
-  display: block;
+  height: 100vh;
+  background: var(--color-feat-nav);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 99;
-  background-color: var(--color-feat-nav);
-  padding-top: 120px;
-  transition: 0.4s;
-
-  /* Glas-effekt */
-  /*background-color: rgba(255, 255, 255, 0.7); /* Hvid med gennemsigtighed */
-  backdrop-filter: blur(15px); /* Blur-effekt */
-  -webkit-backdrop-filter: blur(15px); /* For Safari */
+  pointer-events: none;
 }
 
-.mobile-nav.is-active {
-  left: 0%;
+.mobile-nav.open {
+  transform: translateY(0);
+  opacity: 100;
+  pointer-events: auto;
 }
 
 .mobile-nav a {
-  display: block;
-  text-align: center;
-  margin-bottom: 16px;
-  padding: 12px 16px;
+  font-size: var(--fs-700);
+  font-weight: 600;
+  margin: 1rem 0;
+  font-family: 'lato', sans-serif;
+  text-transform: uppercase;
   text-decoration: none;
   color: black;
-  font-family: 'lato', sans-serif;
-  font-size: var(--fs-800);
-  font-weight: 800;
+  opacity: 100;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
+
+.mobile-nav.open a {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
 
 .mobile-nav a span {
   position: relative;

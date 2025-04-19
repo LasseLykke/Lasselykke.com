@@ -1,51 +1,35 @@
-window.onload = function () {
-  const menu_btn = document.querySelector(".hamburger");
-  const mobile_menu = document.querySelector(".mobile-nav");
-  const header = document.querySelector("header");
+document.addEventListener("DOMContentLoaded", () => {
+  // HAMBURGER TOGGLE
+  const hamburger = document.getElementById("hamburger-btn");
+  const mobileNav = document.getElementById("mobile-nav");
 
-  const isMobile = window.innerWidth <= 768;
-  const threshold = isMobile ? 20 : 20;
-  const delay = 100;
-
-  if (menu_btn && mobile_menu) {
-    menu_btn.addEventListener("click", function () {
-      menu_btn.classList.toggle("is-active");
-      mobile_menu.classList.toggle("is-active");
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("is-active");
+      mobileNav.classList.toggle("open");
+      document.body.classList.toggle("no-scroll");
     });
   }
 
-  // Her er den fungerende scroll-del – nu korrekt placeret
-  let lastScrollY = window.scrollY;
-  let scrollTimeout;
-  let isScrollingDown = false;
+  // HIDE HEADER ON SCROLL
+  let lastScrollTop = 0;
+  const header = document.getElementById("main-header");
 
-  window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
-    const scrollDiff = currentScrollY - lastScrollY;
+  if (header) {
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (Math.abs(scrollDiff) > threshold) {
-      if (scrollDiff > 0) {
-        // Scroller ned
-        header.classList.add("hide-on-scroll");
-        isScrollingDown = true;
-        clearTimeout(scrollTimeout);
+      if (scrollTop > lastScrollTop && scrollTop > 50) {
+        header.classList.add("header-hidden");
       } else {
-        // Scroller op
-        if (isScrollingDown) {
-          clearTimeout(scrollTimeout);
-          scrollTimeout = setTimeout(() => {
-            header.classList.remove("hide-on-scroll");
-            isScrollingDown = false;
-          }, delay);
-        }
+        header.classList.remove("header-hidden");
       }
 
-      lastScrollY = currentScrollY;
-    }
-  });
+      lastScrollTop = Math.max(scrollTop, 0);
+    });
+  }
 
-
-  // Dark mode toggle
+  // DARK MODE TOGGLE
   const toggleButton = document.getElementById("theme-toggle");
   const themeIcon = document.getElementById("theme-icon");
 
@@ -58,7 +42,7 @@ window.onload = function () {
       if (save) localStorage.setItem("theme", theme);
     }
 
-    let storedTheme = localStorage.getItem("theme");
+    const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
       setTheme(storedTheme);
     } else {
@@ -73,14 +57,11 @@ window.onload = function () {
 
     toggleButton.addEventListener("click", () => {
       const current = document.documentElement.getAttribute("data-theme");
-      const newTheme = current === "dark" ? "light" : "dark";
-      setTheme(newTheme, true);
+      setTheme(current === "dark" ? "light" : "dark", true);
     });
   }
-};
 
-// Lytter til procent i progress-bar
-document.addEventListener("DOMContentLoaded", () => {
+  // PROGRESS BARS
   const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
@@ -96,10 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
           percents.forEach((percentEl) => {
             const target = +percentEl.getAttribute("data-target");
             let count = 0;
-            const speed = 500; // lavere = hurtigere
+            const speed = 500;
 
             const updateCount = () => {
-              const increment = Math.ceil(target / 100); // juster for smoothness
+              const increment = Math.ceil(target / 100);
               count += increment;
 
               if (count >= target) {

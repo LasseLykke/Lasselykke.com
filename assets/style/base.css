@@ -43,8 +43,15 @@
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
-  overflow-x: hidden; /* Hvis noget af mit indhold ikke vises, kan dette være synderen! (Quick-fix for hide-on-scroll class navbar)*/
 }
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 
 /*FONTS AND CLASSES*/
 
