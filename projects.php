@@ -19,6 +19,7 @@ $projects = $result->fetch_all(MYSQLI_ASSOC);
 </head>
 
 <body>
+    <div class="contentWrapper">
     <section class="breadcrumbs">
         <p>projects / <span>all</span></p>
     </section>
@@ -37,6 +38,7 @@ $projects = $result->fetch_all(MYSQLI_ASSOC);
             <?php endforeach; ?>
         </div>
     </div>
+            </div>
 </body>
 <script src="./assets/style/script.js"></script>
 

@@ -62,6 +62,7 @@ $projectSkills = $skillLevels[$project_id] ?? [];
 </head>
 
 <body>
+    <div class="contentWrapper">
     <div class="projectWrapper">
         <h1 class="title"><?php echo htmlspecialchars($project['title']); ?></h1>
 
@@ -107,6 +108,7 @@ $projectSkills = $skillLevels[$project_id] ?? [];
             <?php endforeach; ?>
         </div>
 
+    </div>
     </div>
 </body>
 <script src="./assets/style/script.js"></script>

@@ -14,17 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // HIDE HEADER ON SCROLL
   let lastScrollTop = 0;
   const header = document.getElementById("main-header");
-
-  if (header) {
+  
+  if (header && hamburger) {
     window.addEventListener("scroll", () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
+  
+      // SCROLLING DOWN
       if (scrollTop > lastScrollTop && scrollTop > 50) {
         header.classList.add("header-hidden");
-      } else {
-        header.classList.remove("header-hidden");
+        hamburger.classList.add("hide-hamburger");
       }
-
+      // SCROLLING UP
+      else if (scrollTop < lastScrollTop) {
+        header.classList.remove("header-hidden");
+        hamburger.classList.remove("hide-hamburger");
+      }
+  
       lastScrollTop = Math.max(scrollTop, 0);
     });
   }

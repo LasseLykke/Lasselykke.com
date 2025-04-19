@@ -6,6 +6,10 @@
   height: 100dvh;
 }
 
+.contentWrapper {
+  margin-top: 50px;
+}
+
 .headliner {
   max-width: 1200px;
   width: 100%;
