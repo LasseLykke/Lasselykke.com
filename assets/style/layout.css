@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 100dvh;
 }
 
 .contentWrapper {
@@ -19,6 +18,7 @@
   flex-direction: column;
   justify-content: center;
   padding-bottom: 100px;
+  height: 100dvh;
 }
 .headliner h1 {
   font-size: var(--fs-xl);
@@ -47,16 +47,17 @@
   color: var(--color-feat);
 }
 
+
 .allProjectWrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 kolonner á 1fr */
-  gap: 20px; /* afstand mellem kortene */
-  min-width: 350px;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px; 
+  min-width: 200px;
   max-width: 1200px;
-  padding: 20px 0; /* lidt luft omkring */
+  padding: 20px 0; 
 }
 
-/* Mobil: 1 kolonne */
+
 @media (max-width: 600px) {
   .allProjectWrapper {
     grid-template-columns: 1fr;
@@ -72,8 +73,6 @@
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  /* hvis du vil have alle kort lige høje, kan du give dem en min-height: */
-  /* min-height: 300px; */
 }
 
 .project-card h2 {
@@ -88,21 +87,57 @@
   font-family: 'lato', sans-serif;
 }
 
+.project-image {
+  width: 100%;
+  height: 300px; /* eller hvad du synes passer */
+  object-fit: cover; /* fylder boksen og beskærer hvis nødvendigt */
+  border-radius: 4px;
+}
+
 .project-card .read-more {
-  margin-top: auto;           /* skubber linket ned i bunden */
-  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
   font-weight: 500;
-  padding: 6px 10px;
+  color: var(--color-feat);
   border: 1px solid var(--color-feat);
   border-radius: 4px;
-  transition: background 0.2s, color 0.2s;
-  align-self: flex-start;     /* “Read More” ligger til venstre; brug center eller stretch hvis du foretrækker */
+  background-color: transparent;
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  margin-top: auto;
+  align-self: flex-start;
+  overflow: hidden;
+  font-family: 'lato', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.project-card .read-more::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-feat);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .project-card .read-more:hover {
-  background: var(--color-feat);
-  color: #fff;
+  color: var(--color-bg);
+  background-color: var(--color-feat);
+  border-color: var(--color-feat);
 }
+
+.project-card .read-more:hover::after {
+  transform: scaleX(1);
+}
+
+
+
 
 
 /* SINGLE PROJECT */
@@ -211,3 +246,5 @@
     padding: 0;
   }
 }
+
+
