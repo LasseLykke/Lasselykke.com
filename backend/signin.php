@@ -7,14 +7,13 @@ include '../assets/conn/config.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Lasse Lykke</title>
 </head>
 <body>
     <div class="loginWrapper">
     <form class="loginform" action="login.php" method="POST">
-        <div class="centerLogo">
-        <img src="/img/logo.png" alt="logo" class="logo"></div>
-        <h1 class="header">Heartbeat</h1>
+        <h1>L O G I N</h1>
+        
     
     <?php /*Udgiver fejlmedelelse */
         if(isset($_GET['error'])) {?>

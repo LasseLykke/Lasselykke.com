@@ -24,6 +24,8 @@ include 'conn.php';
     <link href="./assets/style/comp.css" type="text/css" rel="stylesheet">
 
     <!-- Sub folders to backend -->
+    <link href="../assets/style/admin.css" type="text/css" rel="stylesheet">
+    <link href="../assets/style/base.css" type="text/css" rel="stylesheet">
 
 
 

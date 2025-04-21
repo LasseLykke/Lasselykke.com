@@ -1,0 +1,70 @@
+/* ADMIN LOGIN */
+.loginWrapper {
+    background-color: var(--color-feat-bg);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'lato', sans-serif;
+  }
+  
+  .loginarea {
+    background-color: white;
+    display: inline-block;
+  }
+  
+  .user-name,
+  .user-pass {
+    display: inline-block;
+  }
+  
+  .user-name input,
+  .user-pass input {
+    cursor: text;
+    padding: 5px 0;
+    color: var(--dark);
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 0.5px solid gray;
+    border-radius: 0;
+    outline: none;
+    background: transparent;
+  }
+  .user-name input:hover,
+  .user-pass input:hover {
+    border-bottom: 0.5px solid black;
+  }
+  
+  .user-name label,
+  .user-pass label {
+    display: none;
+  }
+
+  .loginBtn {
+    display: flex;
+    margin: 0 auto;
+    padding: 5px 15px;
+    border: 1px solid white;
+    border-radius: 2px;
+    background-color: var(--color-feat-bs);
+    color: white;
+    transition: 250ms;
+    transition-timing-function: ease-in-out;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: 'lato', sans-serif;
+  }
+  
+  .loginBtn:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+  }
+  
+
+  /* ADMIN DASHBOARD */
+
+  /* INPUT FORM */
