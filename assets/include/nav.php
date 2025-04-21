@@ -11,7 +11,7 @@
             <a href="./index.php"><span>Home</span></a>
             <a href="./about.php"><span>About</span></a>
             <a href="./projects.php"><span>Projects</span></a>
-            <a href="./contact.php"><span>Contact</span></a>
+            <a href="./about.php#contact"><span>Contact</span></a>
             <button id="theme-toggle">
                 <span id="theme-icon" class="material-symbols-outlined">dark_mode</span>
             </button>
