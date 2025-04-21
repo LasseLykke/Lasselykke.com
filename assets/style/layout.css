@@ -340,3 +340,15 @@ a .icons {
 a {
   text-decoration: none;
 }
+
+/* Automatisk baseret på systemindstilling */
+@media (prefers-color-scheme: dark) {
+  .icons {
+    filter: invert(1) brightness(2);
+  }
+}
+
+/* Hvis du bruger en manuel toggle */
+html[data-theme="dark"] .icons {
+  filter: invert(1) brightness(2);
+}
