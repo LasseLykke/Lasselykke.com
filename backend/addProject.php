@@ -26,33 +26,37 @@ include '../assets/conn/config.php';
     </style>
 </head>
 <body>
-    <h2>Tilføj nyt projekt</h2>
-    <form action="uploadProjectHandler.php" method="POST" enctype="multipart/form-data">
-        <label for="title">Titel:</label>
-        <input type="text" name="title" required>
+<div class="form-wrapper">
+    <div class="form-container">
+        <h2>Tilføj nyt projekt</h2>
+        <form action="uploadProjectHandler.php" method="POST" enctype="multipart/form-data">
+            <label for="title">Titel:</label>
+            <input type="text" name="title" required>
 
-        <label for="short_description">Kort beskrivelse:</label>
-        <textarea name="short_description" required></textarea>
+            <label for="short_description">Kort beskrivelse:</label>
+            <textarea name="short_description" required></textarea>
 
-        <label for="long_description">Lang beskrivelse:</label>
-        <textarea name="long_description" required></textarea>
+            <label for="long_description">Lang beskrivelse:</label>
+            <textarea name="long_description" required></textarea>
 
-        <label for="tags">Tags (kommasepareret):</label>
-        <input type="text" name="tags">
+            <label for="tags">Tags (kommasepareret):</label>
+            <input type="text" name="tags">
 
-        <h3>Upload op til 10 billeder</h3>
-        <div class="image-upload-container">
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-                <div class="image-upload">
-                    <label for="image<?php echo $i; ?>">Billede <?php echo $i; ?>:</label>
-                    <input type="file" name="images[]" accept="image/*">
-                    <input type="text" name="image_comments[]" placeholder="Kommentar til billede <?php echo $i; ?>">
-                </div>
-            <?php endfor; ?>
-        </div>
+            <h3>Upload op til 10 billeder</h3>
+            <div class="image-upload-container">
+                <?php for ($i = 1; $i <= 10; $i++): ?>
+                    <div class="image-upload">
+                        <label for="image<?php echo $i; ?>">Billede <?php echo $i; ?>:</label>
+                        <input type="file" name="images[]" accept="image/*">
+                        <input type="text" name="image_comments[]" placeholder="Kommentar til billede <?php echo $i; ?>">
+                    </div>
+                <?php endfor; ?>
+            </div>
 
-        <button type="submit">Tilføj Projekt</button>
-    </form>
+            <button class="loginBtn" type="submit">Tilføj Projekt</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>
 
