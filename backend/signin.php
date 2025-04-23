@@ -12,7 +12,6 @@ include '../assets/conn/config.php';
 <body>
     <div class="loginWrapper">
     <form class="loginform" action="login.php" method="POST">
-        <h1>L O G I N</h1>
         
     
     <?php /*Udgiver fejlmedelelse */
@@ -23,16 +22,17 @@ include '../assets/conn/config.php';
 
 
     <div class="loginarea">
+    <h1>Enter login</h1><br>
         <div class="user-name">
             <label for="">Brugernavn</label>
-            <input type="text" name="uname" placeholder="Brugernavn">
+            <input type="text" name="uname" placeholder="Username">
         </div>
         <div class="user-pass">
             <label for="">Password</label>
             <input type="password" name="password" placeholder="Password">
         </div>
+        <button class="loginBtn" type="submit">Login</button><br>
     </div>
-    <button class="loginBtn" type="submit">Login</button><br>
         </form>
     </div>
      

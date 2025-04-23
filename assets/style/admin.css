@@ -7,61 +7,89 @@
     justify-content: center;
     align-items: center;
     font-family: 'lato', sans-serif;
+    padding: 20px;
   }
   
   .loginarea {
     background-color: white;
-    display: inline-block;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    min-width: 300px;
+    animation: fadeInUp 0.5s ease-out both;
+  }
+
+  .loginarea h1 {
+    text-decoration: uppercase;
+    font-weight: 900;
+    text-align: center;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .user-name,
   .user-pass {
-    display: inline-block;
+    display: block;
+    width: 100%;
   }
   
   .user-name input,
   .user-pass input {
+    width: 100%;
     cursor: text;
-    padding: 5px 0;
+    padding: 8px 0;
     color: var(--dark);
     margin-bottom: 30px;
     border: none;
-    border-bottom: 0.5px solid gray;
+    border-bottom: 1px solid gray;
     border-radius: 0;
     outline: none;
     background: transparent;
+    transition: border-color 0.3s ease;
   }
+  
   .user-name input:hover,
-  .user-pass input:hover {
-    border-bottom: 0.5px solid black;
+  .user-pass input:hover,
+  .user-name input:focus,
+  .user-pass input:focus {
+    border-bottom: 1px solid black;
   }
   
   .user-name label,
   .user-pass label {
     display: none;
   }
-
+  
   .loginBtn {
     display: flex;
+    justify-content: center;
     margin: 0 auto;
-    padding: 5px 15px;
-    border: 1px solid white;
-    border-radius: 2px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
     background-color: var(--color-feat-bs);
     color: white;
-    transition: 250ms;
-    transition-timing-function: ease-in-out;
-    font-size: 11px;
-    letter-spacing: 2px;
-    font-weight: 400;
+    transition: background-color 250ms ease-in-out, transform 150ms ease;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
     text-transform: uppercase;
     font-family: 'lato', sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   }
   
   .loginBtn:hover {
     background-color: black;
-    color: white;
-    border: 1px solid white;
+    transform: translateY(-2px);
   }
   
 
