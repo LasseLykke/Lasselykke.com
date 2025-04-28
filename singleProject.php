@@ -110,7 +110,33 @@ $projectSkills = $skillLevels[$project_id] ?? [];
 
     </div>
     </div>
+    <div id="lightbox" style="display: none;">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Zoomed billede">
+</div>
+
 </body>
+<script>
+document.querySelectorAll('.secondaryImage').forEach(img => {
+    img.addEventListener('click', function() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = this.src;
+        lightbox.style.display = 'flex';
+    });
+});
+
+document.getElementById('lightbox-close').addEventListener('click', function() {
+    document.getElementById('lightbox').style.display = 'none';
+});
+
+// Alternativ: Klik udenfor billedet lukker også
+document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target.id === 'lightbox') {
+        document.getElementById('lightbox').style.display = 'none';
+    }
+});
+</script>
 <script src="./assets/style/script.js"></script>
 
 </html>
