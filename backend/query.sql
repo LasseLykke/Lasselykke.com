@@ -13,5 +13,6 @@ CREATE TABLE project_images (
     image_path VARCHAR(255) NOT NULL,
     comment TEXT NULL,
     uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_hero TINYINT(1) DEFAULT 0,
     FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
 );

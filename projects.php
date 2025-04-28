@@ -29,13 +29,23 @@ $projects = $result->fetch_all(MYSQLI_ASSOC);
 
                 <?php foreach ($projects as $project): ?>
                     <?php
-                    // Hent det første billede for hvert projekt
-                    $sql_image = "SELECT image_path FROM project_images WHERE project_id = ? ORDER BY uploaded_at ASC LIMIT 1";
+                    // Hent hero billede først
+                    $sql_image = "SELECT image_path FROM project_images WHERE project_id = ? AND is_hero = 1 LIMIT 1";
                     $stmt_image = $conn->prepare($sql_image);
                     $stmt_image->bind_param('i', $project['id']);
                     $stmt_image->execute();
                     $result_image = $stmt_image->get_result();
                     $first_image = $result_image->fetch_assoc();
+
+                    // Hvis intet hero billede, hent første billede
+                    if (!$first_image) {
+                        $sql_image = "SELECT image_path FROM project_images WHERE project_id = ? ORDER BY uploaded_at ASC LIMIT 1";
+                        $stmt_image = $conn->prepare($sql_image);
+                        $stmt_image->bind_param('i', $project['id']);
+                        $stmt_image->execute();
+                        $result_image = $stmt_image->get_result();
+                        $first_image = $result_image->fetch_assoc();
+                    }
                     ?>
 
                     <div class="project-card">

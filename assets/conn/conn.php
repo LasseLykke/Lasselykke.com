@@ -1,4 +1,5 @@
 <?php
+ob_start();
 
 $sname = "localhost";
 $uname = "root";

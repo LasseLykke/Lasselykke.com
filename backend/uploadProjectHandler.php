@@ -7,33 +7,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $long_description = $_POST['long_description'];
     $tags = $_POST['tags'];
 
-    // Indsæt projektet i databasen
+    // Hvilket billede er valgt som hero?
+    $hero_index = isset($_POST['hero_image']) ? (int)$_POST['hero_image'] : -1;
+
     $stmt = $conn->prepare("INSERT INTO projects (title, short_description, long_description, tags) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $title, $short_description, $long_description, $tags);
 
     if ($stmt->execute()) {
-        $project_id = $stmt->insert_id; // Hent ID på det indsatte projekt
+        $project_id = $stmt->insert_id;
         $stmt->close();
 
-        $upload_dir = '../uploads/'; // Sørg for, at denne mappe eksisterer
+        $upload_dir = '../uploads/';
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0777, true);
         }
 
-        // Håndtering af billedupload
         foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
-            if (!empty($tmp_name)) { // Kun hvis der faktisk er et billede uploadet
+            if (!empty($tmp_name)) {
                 $file_name = uniqid() . "_" . $_FILES['images']['name'][$key];
                 $target_file = $upload_dir . $file_name;
 
-                // Komprimer og gem billede
                 if (compressImage($tmp_name, $target_file, 1080)) {
-                    // Hent tilsvarende kommentar
                     $comment = !empty($_POST['image_comments'][$key]) ? $_POST['image_comments'][$key] : NULL;
 
-                    // Indsæt billede i databasen
-                    $stmt_img = $conn->prepare("INSERT INTO project_images (project_id, image_path, comment) VALUES (?, ?, ?)");
-                    $stmt_img->bind_param("iss", $project_id, $target_file, $comment);
+                    // Check om dette billede er valgt som hero
+                    $is_hero = ($key === $hero_index) ? 1 : 0;
+
+                    $stmt_img = $conn->prepare("INSERT INTO project_images (project_id, image_path, comment, is_hero) VALUES (?, ?, ?, ?)");
+                    $stmt_img->bind_param("issi", $project_id, $target_file, $comment, $is_hero);
                     $stmt_img->execute();
                     $stmt_img->close();
                 }

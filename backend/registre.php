@@ -1,10 +1,4 @@
-<?php 
-session_start();
 
-if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
-include '../assets/conn/config.php';
-
-?>
 
 <!DOCTYPE html>
 <html lang="dk">
@@ -44,9 +38,4 @@ include '../assets/conn/config.php';
 
 </html>
 
-<?php
-} else {
-    header("Location: index.php");
-    exit();
-}
-?>
+
